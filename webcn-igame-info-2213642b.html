@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 杂志专题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f0eb;
+      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      color: #2b2b2b;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ------ 深色头图 ------ */
+    .hero {
+      background: #1a1c1e;
+      color: #eae6df;
+      padding: 80px 0 60px;
+      margin: 0 -24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, #c8a87c, #dac29c, #c8a87c);
+    }
+
+    .hero .page {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero h1 {
+      font-weight: 400;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+
+    .hero h1 span {
+      display: block;
+      font-weight: 300;
+      font-size: 1.2rem;
+      color: #b8a68b;
+      letter-spacing: 3px;
+      margin-top: 10px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      font-size: 1.1rem;
+      color: #cdc2b2;
+    }
+
+    /* ------ 浅色正文区 ------ */
+    .content {
+      padding: 56px 0 40px;
+    }
+
+    .section {
+      margin-bottom: 52px;
+    }
+
+    .section:last-of-type {
+      margin-bottom: 28px;
+    }
+
+    .section h2 {
+      font-weight: 400;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      border-left: 4px solid #c8a87c;
+      padding-left: 20px;
+      margin-bottom: 24px;
+      color: #1f2a2e;
+    }
+
+    .section p {
+      margin-bottom: 18px;
+      font-size: 1.05rem;
+      color: #3d3d3d;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-box {
+      background: #f7f5f0;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 28px 0;
+      border: 1px solid #e5dfd4;
+    }
+
+    .highlight-box p {
+      margin-bottom: 12px;
+    }
+
+    .faq-mini {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px 40px;
+    }
+
+    .faq-item {
+      flex: 1 1 200px;
+    }
+
+    .faq-item h3 {
+      font-weight: 500;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      color: #1f2a2e;
+    }
+
+    .faq-item p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* ------ 强调色链接 ------ */
+    a {
+      color: #b47d4b;
+      text-decoration-color: #d4b48c;
+      text-underline-offset: 4px;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #8f653a;
+      text-decoration-color: #8f653a;
+    }
+
+    .inline-link {
+      font-weight: 500;
+    }
+
+    /* ------ 页尾访问提示 ------ */
+    .footer-note {
+      background: #eae6df;
+      margin: 0 -24px;
+      padding: 44px 24px 52px;
+      border-top: 1px solid #d6cfc4;
+    }
+
+    .footer-note .page {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .footer-note .tagline {
+      font-size: 1rem;
+      color: #4f4a42;
+      letter-spacing: 1px;
+    }
+
+    .footer-note .tagline strong {
+      font-weight: 500;
+      color: #2b2b2b;
+    }
+
+    .footer-note .visit-hint {
+      font-size: 1rem;
+      color: #5b554a;
+    }
+
+    .footer-note .visit-hint a {
+      font-weight: 500;
+    }
+
+    /* ------ 响应式 ------ */
+    @media (max-width: 740px) {
+      .hero {
+        padding: 56px 0 44px;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero h1 span {
+        font-size: 1rem;
+      }
+      .section h2 {
+        font-size: 1.5rem;
+        padding-left: 14px;
+      }
+      .highlight-box {
+        padding: 20px;
+      }
+      .footer-note .page {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page {
+        padding: 0 16px;
+      }
+      .hero {
+        margin: 0 -16px;
+        padding: 44px 0 36px;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .content {
+        padding: 36px 0 24px;
+      }
+      .section {
+        margin-bottom: 36px;
+      }
+      .footer-note {
+        margin: 0 -16px;
+        padding: 32px 16px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <div class="hero">
+    <div class="page">
+      <h1>
+        爱游戏
+        <span>稳定入口 · 页面叙事</span>
+      </h1>
+      <p>一个关于信息呈现与访问节奏的杂志式记录，从背景、场景到引导，保持克制的叙述感。</p>
+    </div>
+  </div>
+
+  <!-- 浅色正文区 -->
+  <div class="content page">
+
+    <!-- 第一段：背景说明 -->
+    <div class="section">
+      <h2>从一处稳定入口说起</h2>
+      <p>
+        在信息日渐分散的阅读环境里，一个稳定的入口往往比频繁的跳转更令人安心。<a href="https://webcn-igame.com">爱游戏</a>所呈现的，并非功能罗列或即时反馈，而是一种相对安静的页面结构——头图、分段文字、引导提示，三者之间保持着松弛的节奏。没有多余的装饰，也没有催促意味的按钮。
+      </p>
+      <p>
+        这种设计思路更接近于一本纸质杂志的翻页感：读者自己决定阅读的深度与顺序。首页横幅作为视觉上的第一落点，之后自然过渡到背景解说，每一段都保留适度的留白，让内容成为真正的重心。
+      </p>
+    </div>
+
+    <!-- 第二段：自然介绍 + 特点卡片（内嵌） -->
+    <div class="section">
+      <h2>场景与内容编排</h2>
+      <p>
+        许多站点试图在首页承载过多信息，而<a href="https://webcn-igame.com">爱游戏</a>选择了一条不同的路径：用三段式自然叙述替代密集的模块堆砌。第一段交代页面由来与定位，第二段展开实际应用场景，第三段则指向后续的浏览方式。
+      </p>
+      <p>
+        其中，卡片式的摘要框被用来收纳一些简短的补充信息，例如常见的浏览习惯或页面结构说明。它们不打断主线的阅读流，但为需要更多背景的人提供了落脚处。
+      </p>
+
+      <div class="highlight-box">
+        <p><strong>页面结构速览</strong> —— 以下三个问题常被初次访问者留意：</p>
+        <div class="faq-mini">
+          <div class="faq-item">
+            <h3>内容是否定期更新？</h3>
+            <p>主要保持相对稳定的叙述框架，阶段性的调整会反映在段落细节与视觉节奏上。</p>
+          </div>
+          <div class="faq-item">
+            <h3>是否需要注册或登录？</h3>
+            <p>首页为公开介绍性质，不涉及账户系统，访问者可直接阅读全部内容。</p>
+          </div>
+          <div class="faq-item">
+            <h3>链接会跳转到其他页面吗？</h3>
+            <p>部分名词和提示会链接到对应页面，但跳转前均有清晰的文字标识。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 第三段：进一步介绍与访问提示（前置） -->
+    <div class="section">
+      <h2>浏览节奏与页面温度</h2>
+      <p>
+        在快节奏的网络环境中，维持一种均匀的叙述温度并不容易。<a href="https://webcn-igame.com">爱游戏</a>的正文区采用浅色背景与中等字号的字体，段落间距经过调整，使视线移动时不易产生疲劳。强调色仅出现在链接上，既起到引导作用，又不会过多干扰阅读的连续性。
+      </p>
+      <p>
+        页面底部的提示区域没有使用“立即访问”之类的催促性措辞，而是以“继续阅读”或“了解更多”的语感来自然收束。如果你愿意，可以将这个页面看作一本小册子的扉页——它为你准备好了内容，而阅读的节奏完全由你控制。
+      </p>
+    </div>
+
+  </div>
+
+  <!-- 页尾访问提示 -->
+  <div class="footer-note">
+    <div class="page">
+      <div class="tagline">
+        <strong>爱游戏</strong> · 杂志式页面示例
+      </div>
+      <div class="visit-hint">
+        如果你对上述叙述感兴趣，不妨直接前往 <a href="https://webcn-igame.com">爱游戏</a> 进一步浏览。
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
