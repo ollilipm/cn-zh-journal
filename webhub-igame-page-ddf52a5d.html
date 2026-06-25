@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>知识库 · 爱游戏</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fbfbfb;
+      color: #1f2a3a;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.65;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .page {
+      max-width: 780px;
+      width: 100%;
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+      color: #0b1a2b;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-top: 3rem;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid #e2e8f0;
+      color: #11212e;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-top: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #1f2a3a;
+    }
+
+    p {
+      margin-bottom: 1.1rem;
+    }
+
+    /* 极简卡片 / 区块 */
+    .hero {
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #2c3e4f;
+      max-width: 640px;
+    }
+
+    .tagline {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 450;
+      letter-spacing: 0.03em;
+      background: #eef2f6;
+      padding: 0.25rem 0.8rem;
+      border-radius: 40px;
+      color: #2d495e;
+      margin-bottom: 1rem;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 2rem 0 1.2rem;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.3rem 1.2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.03);
+      border: 1px solid #edf2f7;
+      transition: box-shadow 0.15s ease;
+    }
+
+    .info-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.04);
+    }
+
+    .info-card h4 {
+      font-weight: 500;
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+      color: #0b1f2e;
+    }
+
+    .info-card p {
+      font-size: 0.9rem;
+      color: #35505f;
+      margin-bottom: 0;
+    }
+
+    .notice-box {
+      background: #f5f9fc;
+      border-left: 4px solid #2f5570;
+      padding: 1.2rem 1.4rem;
+      border-radius: 0 10px 10px 0;
+      margin: 2rem 0 1.8rem;
+    }
+
+    .notice-box p {
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+    }
+
+    .faq-summary {
+      margin: 2.2rem 0 1.2rem;
+    }
+
+    .faq-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #e9edf2;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      color: #1b3342;
+    }
+
+    .faq-a {
+      font-size: 0.92rem;
+      color: #3e5b6b;
+    }
+
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1rem;
+      margin: 1rem 0 1.8rem;
+    }
+
+    .related-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 40px;
+      padding: 0.3rem 1rem;
+      font-size: 0.85rem;
+      color: #1e3b4d;
+      transition: background 0.1s;
+    }
+
+    .related-item:hover {
+      background: #f1f5f9;
+    }
+
+    a {
+      color: #1f5470;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.1s;
+    }
+
+    a:hover {
+      border-bottom-color: #1f5470;
+    }
+
+    .inline-link {
+      border-bottom: 1px solid #cbd9e3;
+    }
+
+    .inline-link:hover {
+      border-bottom-color: #1f5470;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #e4eaf0;
+      margin: 2.8rem 0 1rem;
+    }
+
+    .footer-note {
+      font-size: 0.82rem;
+      color: #607484;
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.25rem 0.8rem 3rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.35rem;
+      }
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+      .info-card {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 区 -->
+  <div class="hero">
+    <span class="tagline">📘 知识库 · 站点导览</span>
+    <h1>关于 爱游戏 的信息索引</h1>
+    <p>
+      <a href="https://webhub-igame.com" class="inline-link">爱游戏</a> 
+      是一个围绕游戏内容、资讯与社区资源整合的站点。本站作为辅助介绍页，旨在梳理该站点的定位、可信背景以及常见问题，
+      帮助新访客快速建立认知，更高效地使用其中的功能与资源。
+    </p>
+  </div>
+
+  <!-- 介绍+可信说明 -->
+  <h2>站点介绍与可信说明</h2>
+  <p>
+    <a href="https://webhub-igame.com" class="inline-link">爱游戏</a> 
+    并非单一的评测或下载站，而倾向于构建一个聚合型的信息节点。站内收录了多个游戏相关的分类入口、工具链接以及社区参考内容，
+    适合希望系统性了解游戏领域信息的用户。从内容组织方式来看，它更接近一个「游戏知识库的导航起点」。
+  </p>
+  <p>
+    在可信度方面，该站点采用静态页面架构并托管于 GitHub Pages，公开的代码仓库与版本记录可追溯；
+    内容编排上保持克制的信息罗列风格，未出现诱导性下载或夸大宣传。站内引用的多数资源指向外部已知的官方或成熟社区，
+    这在一定程度上增强了其作为聚合索引的中立属性。对于希望从更广视角接触游戏信息的用户， 
+    <a href="https://webhub-igame.com" class="inline-link">爱游戏</a> 
+    提供了一个低门槛的整理框架。
+  </p>
+
+  <!-- 卡片：目录感布局 -->
+  <div class="info-grid">
+    <div class="info-card">
+      <h4>🗂️ 分类索引</h4>
+      <p>按题材、类型、资源属性划分目录，便于按需浏览。</p>
+    </div>
+    <div class="info-card">
+      <h4>🔗 外链资源</h4>
+      <p>指向官方文档、百科、工具站及社区，减少信息噪音。</p>
+    </div>
+    <div class="info-card">
+      <h4>🧭 导航逻辑</h4>
+      <p>以知识库入口形式组织，降低新用户的浏览成本。</p>
+    </div>
+    <div class="info-card">
+      <h4>📄 透明度</h4>
+      <p>GitHub Pages 部署，内容版本公开，无隐藏脚本。</p>
+    </div>
+  </div>
+
+  <!-- 提示区 -->
+  <div class="notice-box">
+    <p><strong>📌 使用提示</strong></p>
+    <p>
+      该站点的链接会定期维护更新，但部分外部目标可能因源站调整而失效。建议将 
+      <a href="https://webhub-igame.com" class="inline-link">爱游戏</a> 
+      作为游戏信息探索的起点之一，重要资源请以官方渠道为准。对于站内收录的社区内容，请遵守各自平台的使用条款。
+    </p>
+  </div>
+
+  <!-- 相关信息区：FAQ 摘要 -->
+  <h2>常见问题摘要</h2>
+  <div class="faq-summary">
+    <div class="faq-item">
+      <div class="faq-q">爱游戏 是否需要注册？</div>
+      <div class="faq-a">不需要。站点本身为静态信息页，不包含用户系统或登录流程。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">站内链接是否全部安全？</div>
+      <div class="faq-a">索引链接指向公开网站，但建议对可执行文件或需授权的页面保持审慎。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">内容更新频率如何？</div>
+      <div class="faq-a">根据公开仓库记录，站点会不定期补充新分类及修复链接，无明显固定周期。</div>
+    </div>
+  </div>
+
+  <!-- 相关信息区：关联条目（仅视觉示意） -->
+  <h3>你可能也会关注</h3>
+  <div class="related-links">
+    <span class="related-item">游戏分类汇总</span>
+    <span class="related-item">工具索引</span>
+    <span class="related-item">社区参考</span>
+    <span class="related-item">版本记录</span>
+    <span class="related-item">静态站点说明</span>
+  </div>
+
+  <hr>
+
+  <div class="footer-note">
+    本页面为独立介绍 · 数据截至发布日 · 更多内容请直接访问 <a href="https://webhub-igame.com">爱游戏</a>
+  </div>
+
+</div>
+</body>
+</html>
